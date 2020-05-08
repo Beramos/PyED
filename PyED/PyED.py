@@ -18,8 +18,8 @@ class Reservoir:
     def timeLoop(self, flux, time):
         return self.concentration - time*flux/self.volume
 
-    def conductivity(self, concentration, electrolyte=self.electrolyte)
-        return = concentration*electrolyte.lambdaEq
+    def conductivity(self, concentration):
+        return concentration*self.electrolyte.lambdaEq
 
 
 class Channel:
@@ -29,12 +29,12 @@ class Channel:
         self.thickness = thickness
         self.surfaceMem = length*width
         self.volume = length*width*thickness
-        self.electrolyte
+        self.electrolyte = electrolyte
 
-    def conductivity(self, concentration, electrolyte=self.electrolyte)
-        return = concentration*electrolyte.lambdaEq
+    def conductivity(self, concentration):
+        return concentration*self.electrolyte.lambdaEq
         
-    def resistance(self, concentration, electrolyte=self.electrolyte):
-        kappa = self.conductivity(concentration, electrolyte=electrolyte)
+    def resistance(self, concentration):
+        kappa = self.conductivity(concentration)
         resistanceSolution = self.thickness/kappa/self.surfaceMem
         return resistanceSolution
